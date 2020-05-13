@@ -9,9 +9,9 @@
 </head>
 <body>
     <header><!--Logo y boton de inicio de sesion-->
-        <img src="./img/logo.png" alt="logo">
+        <img id="logo" src="./img/logo.png" alt="logo">
 
-        <input class="button_mediano" type="submit" value="Iniciar Sesion">
+        <a href="login.php"><input class="button_mediano" type="submit" value="Iniciar Sesion"></a>
         
     </header>
 
@@ -33,16 +33,13 @@
                 <img class="logincon" src="./img/fbdark.png" alt="">
                 <img class="logincon" src="./img/google.png" alt="">
                 </section>
-                <input  class="button_grande" type="submit" value="GO!">
+                <a class="button_grande_registro" href="home.php">Registrarme!</a>
             </section>
             
-
         </form>
         </section>
 
     </section>
-
-
 
     <footer>
 
@@ -58,7 +55,6 @@
         </section>
 
     </footer>
-
 
 </body>
 </html>
