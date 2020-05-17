@@ -54,7 +54,7 @@ p{
     font-family: 'Bree Serif', serif;
 }
 
-ul{
+ header ul{
 
     display: flex;
     flex-direction: row;
@@ -64,13 +64,13 @@ ul{
 
 }
 
-li{
+header li{
     padding-left: 10px;
     padding-right: 10px;
     
 }
 
-a{
+header a{
     color: white;
 }
 
@@ -108,116 +108,69 @@ a{
     display: block;
 }
 
-
-
-/*fin prueba*/
-
-
-#buscador{
+.cuerpo{
     position: absolute;
-    top: 50px;
-    margin-top: 50px;
-    width: 95vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-}
-
-#buscador input{
-    width: 30%;
-    height: 50px;
-    border-radius: 25px;
-    border: 0px;
-    background-color: rgb(89, 92, 91);
-    color: white;
-    font-size: 20px;
-    padding-left: 20px;
-}
-
-::placeholder{
-    
-    color: white;
-    font-size: 20px;
-}
-
-#buscador button{
-    min-width: 10%;
-    margin-left: 5%;
-    background-color: white;
-    border: 3px solid black;
-    font-size: 20px;
-
-}
-
-#dashboard{
-    position: absolute;
-    top: 150px;
-    width: 95vw;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-#dashboard #imagenes{
-    
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 500px;
-    width: 500px;
-    border: 3px solid black;
-
-}
-
-#dashboard img{
-    width: 500px;
-    width: 500px;
-
-}
-
-#imagenes{
-    display: flex;
-    flex-direction: row;
-    border: 0px;
-}
-
-#opciones img{
-    width: 40px;
-    height: 40px;
-    padding-left: 15px;
-    
-}
-#error-contenedor{
     width: 100vw;
-    height: 100vh;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
 }
 
-#error{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 40px;
+.info{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-#description{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 40px;
+.detalles{
+    padding-left: 100px;
 }
 
-#escape{
-    background-color: white;
+.detalles p{
+    font-size: 20px;
+}
+
+.info img{
     width: 200px;
-    height: 40px;
+    height: 200px;
+    
+}
+
+.menu-perfil ul{
+    position: fixed;
+    top: 40vh;
+    left: 15vw;
+    list-style: none;
+}
+
+.menu-perfil li{
+    padding: 10px;
+}
+
+.menu-perfil li a{
+    color: black;
+    
+    font-family: 'Bree Serif', serif;
+    font-size: 15px;
+}
+
+.resumen{
+    padding-top: 40px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-archivos{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-archivos img{
+    margin-bottom: 40px;
     border: 2px solid black;
 }
 
-#escape a{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
