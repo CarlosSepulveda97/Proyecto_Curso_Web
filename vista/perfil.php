@@ -80,10 +80,41 @@
             </ul>
     </section>
 
+    <section id="subir">
+
+        <form action="../controlador/datosImagen.php" method="post" enctype="multipart/form-data">
+            <label for="imagen">Imagen:</label>
+            <input type="file" name="imagen" id="">
+            <input type="submit" value="Enviar Imagen">
+        </form>
+
+    </section>
+
+
     <section class="resumen">
         <section class="menu-archivos">
-            <img src="./img/b1.jpg" alt="">
-            <img src="./img/b2.jpg" alt="">
+            <?php
+
+                $array=[];
+                $nombre=$_SESSION['nombre'];
+
+                $conectar=mysqli_connect('localhost','root','','usuarios');
+                $sql="SELECT ubicacion FROM publicacion WHERE id_user = '$nombre'";
+                $solicitud=mysqli_query($conectar,$sql);
+                
+                if($solicitud->num_rows>0){
+                    while($fila=$solicitud->fetch_assoc()){
+                        $direccion=$fila['ubicacion'];
+                        echo <<< EOT
+                        <img src="$direccion" alt="">
+                        
+                        EOT;
+                    }
+                }
+
+            ?>
+
+            
         </section>
     </section>
 

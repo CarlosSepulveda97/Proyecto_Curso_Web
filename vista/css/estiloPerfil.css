@@ -170,6 +170,8 @@ header a{
 }
 
 .menu-archivos img{
+    width: 400px;
+    height: 400px;
     margin-bottom: 40px;
     border: 2px solid black;
 }
