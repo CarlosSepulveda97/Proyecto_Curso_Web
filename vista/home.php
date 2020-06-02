@@ -43,10 +43,12 @@
                      </div>
         </section>
 </header>
-
+<!-- BUSCADOR-->
     <section id="buscador">
+        <form action="buscar.php" method="post">
         <input type="text" placeholder="Buscar..." >
-        <button>Buscar!</button>
+        <input id="boton_buscar" type="submit" value="Buscar!">
+        </form>
     </section>
 
     <section id="dashboard">

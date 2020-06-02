@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/estiloPerfil.css">
+
     
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 </head>
@@ -40,7 +41,7 @@
             </ul>
         </section>
         <section class="categorias"> 
-            <input class="button_mediano" type="submit" value="<?php echo $_SESSION['usuario']?>"></a>
+            <input class="button_mediano" type="submit" value="<?php echo $_SESSION['nombre']?>"></a>
             <div class="lista-categorias">
                         <a href="#">Ayuda</a>
                         <a href="#">Ajustes</a>
@@ -53,10 +54,23 @@
 <section class="cuerpo">
 
     <section class="info">
-        <img src="./img/persona.jpg" alt="">
-        <section class="detalles">
+        <?php
+            $nombre=$_SESSION['nombre'];
+            $conectar=mysqli_connect('localhost','root','','usuarios');
+            $sql="SELECT ubicacion FROM info WHERE nombre = '$nombre'";
+            $solicitud=mysqli_query($conectar,$sql);
+            while($fila=$solicitud->fetch_assoc()){
+                $direccion=$fila['ubicacion'];
+                
+                echo <<< EOT
+                    <img src="$direccion" alt="">
+                EOT;
+            }
+    
+        ?>
+    <section class="detalles">
             <p id="nombre">
-            <?php echo $_SESSION['usuario']?>
+            <?php echo $_SESSION['nombre']?>
             </p>
             <p id="estado">
                 Es un bonito dia.
@@ -66,7 +80,8 @@
                 Berlin, Germany.
             </p>
 
-            <button>Editar</button>
+            <a id=textoBoton href="./editar.php"><button>Editar</button></a>
+            
         </section>
     </section>
 
@@ -83,9 +98,9 @@
     <section id="subir">
 
         <form action="../controlador/datosImagen.php" method="post" enctype="multipart/form-data">
-            <label for="imagen">Imagen:</label>
-            <input type="file" name="imagen" id="">
-            <input type="submit" value="Enviar Imagen">
+            
+            <input id="seleccion" type="file" name="imagen" id="" >
+            <input id="boton" type="submit" value="Enviar Imagen">
         </form>
 
     </section>
@@ -93,6 +108,8 @@
 
     <section class="resumen">
         <section class="menu-archivos">
+
+        <!-- Seccion que busca y publica las imagenes-->
             <?php
 
                 $array=[];
@@ -103,14 +120,56 @@
                 $solicitud=mysqli_query($conectar,$sql);
                 
                 if($solicitud->num_rows>0){
+                    $contador=1;
+                    echo <<< EOT
+                        <table>
+                    EOT;
+
                     while($fila=$solicitud->fetch_assoc()){
                         $direccion=$fila['ubicacion'];
-                        echo <<< EOT
-                        <img src="$direccion" alt="">
                         
+                        if ($contador==1){
+                            echo <<< EOT
+                                <TR>
+                                <TD>
+                            EOT;
+                        }else{
+                            echo <<< EOT
+                                <TD>
+                            EOT;
+
+                        }
+                        echo <<< EOT
+                            <img src="$direccion" alt="">
+                        EOT;
+
+                        if ($contador==1){
+                            echo <<< EOT
+                                </TD>
+                                
+                            EOT;
+                            $contador=2;
+                        }else{
+                            echo <<< EOT
+                                </TD>
+                                </TR>
+                            EOT;
+                            $contador=1;
+                        }
+                    
+                    }
+
+                    if ($contador==1){
+                        echo <<< EOT
+                            </TR>
                         EOT;
                     }
-                }
+
+                    echo <<< EOT
+                        <table>
+                    EOT;    
+                    }
+                
 
             ?>
 
