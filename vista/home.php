@@ -31,7 +31,7 @@
                 </li>
                 <li><a>Tendencias</a></li>
                 <li><a>Equipos</a></li>
-                <li><a>Estoy perdido</a></li>
+                <li><a href="./home.php">Home</a></li>
             </ul>
         </section>
         <section class="categorias"> 
@@ -43,14 +43,21 @@
                      </div>
         </section>
 </header>
+
+
+
 <!-- BUSCADOR-->
     <section id="buscador">
-        <form action="buscar.php" method="post">
-        <input type="text" placeholder="Buscar..." >
-        <input id="boton_buscar" type="submit" value="Buscar!">
+        <form action="./buscar.php" method="POST">
+            <input name="busqueda" type="text" placeholder="Buscar..." >
+            <input id="boton_buscar" type="submit" value="Buscar!">
         </form>
     </section>
 
+
+
+
+    
     <section id="dashboard">
         <section id="imagenes">
             <img src="./img/b1.jpg" alt="">

@@ -23,7 +23,7 @@
         <section>
             <ul>
                 <li class="categorias">
-                    <a >
+                    <a>
                         Categorias
                     </a>
                     <div class="lista-categorias">
@@ -38,7 +38,7 @@
             </ul>
         </section>
         <section class="categorias"> 
-            <input class="button_mediano" type="submit" value="<?php echo $_SESSION['nombre']?>"></a>
+            <a href="./perfil.php"><input class="button_mediano" type="submit" value="<?php echo $_SESSION['nombre']?>"></a>
             <div class="lista-categorias">
                         <a href="#">Ayuda</a>
                         <a href="#">Ajustes</a>
@@ -57,7 +57,7 @@
 <!-- FOTO DE PERFIL E INFORMACION DE USUARIO(ESTADO,CIUDAD,NOMBRE)-->
     <section class="info">
         <?php
-            $nombre=$_SESSION['nombre'];
+            $nombre=$_GET['nombre'];
             $conectar=mysqli_connect('localhost','root','','usuarios');
             $sql="SELECT ubicacion FROM info WHERE nombre = '$nombre'";
             $solicitud=mysqli_query($conectar,$sql);
@@ -86,7 +86,7 @@
                     <p id="ubicacion">
                     $fila[ciudad]
                     </p>
-                    <a id=textoBoton href="./editar.php"><button>Editar</button></a>
+                    
                     </section>
                 EOT;
 
@@ -98,42 +98,11 @@
 
 
 
-
-    <!--MENU LATERAL-->        
-    <section class="menu-perfil">
-            <ul>
-                <li><a href="./home.php">Principal</a></li>
-                <li><a href="">Mis archivos</a></li>
-                <li><a href="">Siguiendo</a></li>
-                <li><a href="">Seguidores</a></li>
-                <li><a href="">Administrar</a></li>
-            </ul>
-    </section>
-
-
-
-
-
-    <!--SUBIR ARCHIVOS-->
-    
-    <section id="subir">
-        <form action="../controlador/datosImagen.php" method="post" enctype="multipart/form-data">
-            <input id="seleccion" type="file" name="imagen" id="" >
-            <input id="boton" type="submit" value="Enviar Imagen">
-        </form>
-
-    </section>
-
-
-
-
-
     <!-- BUSCAR Y PUBLIAR IMAGENES-->
     <section class="resumen">
         <section class="menu-archivos">
             <?php
                 $array=[];
-                $nombre=$_SESSION['nombre'];
                 $conectar=mysqli_connect('localhost','root','','usuarios');
                 $sql="SELECT ubicacion FROM publicacion WHERE id_user = '$nombre'";
                 $solicitud=mysqli_query($conectar,$sql);
