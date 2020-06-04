@@ -34,7 +34,7 @@
                 </li>
                 <li><a>Tendencias</a></li>
                 <li><a>Equipos</a></li>
-                <li><a href="./home.php">home</a></li>
+                <li><a href="./home.php">Home</a></li>
             </ul>
         </section>
         <section class="categorias"> 
@@ -61,21 +61,45 @@
             $conectar=mysqli_connect('localhost','root','','usuarios');
             $sql="SELECT ubicacion FROM info WHERE nombre = '$nombre'";
             $solicitud=mysqli_query($conectar,$sql);
-            while($fila=$solicitud->fetch_assoc()){
+            $fila=$solicitud->fetch_assoc();
+            if (is_null($fila)){
+                $ubicacion="./archivos/default.png";
+                echo <<< EOT
+                    <img src="$ubicacion" alt="">
+                EOT;
+            }else
+            {
                 $direccion=$fila['ubicacion'];
-                
                 echo <<< EOT
                     <img src="$direccion" alt="">
                 EOT;
             }
         ?>
         <section class="detalles">
-        
             <?php
                 $sql2="SELECT * FROM info WHERE nombre = '$nombre'";
                 $solicitud=mysqli_query($conectar,$sql2);
                 $fila=$solicitud->fetch_assoc();
                 
+                if (is_null($fila)){
+                    $nombre=$_SESSION['nombre'];
+                    $descripcion="Hola!";
+                    $ubicacion="./archivos/default.png";
+                    $ciudad="Planeta Tierra";
+                    
+                    $conectar=mysqli_connect('localhost','root','','usuarios');
+                    
+
+                    $sql="INSERT INTO info (nombre,descripcion,ubicacion,ciudad) VALUES('$nombre','$descripcion','$ubicacion','$ciudad')";
+
+                    $ejecutar=mysqli_query($conectar,$sql);
+
+                }
+
+                $sql2="SELECT * FROM info WHERE nombre = '$nombre'";
+                $solicitud=mysqli_query($conectar,$sql2);
+                $fila=$solicitud->fetch_assoc();
+
                 echo <<< EOT
                     <p id="nombre">
                     $fila[nombre]
@@ -89,10 +113,7 @@
                     <a id=textoBoton href="./editar.php"><button>Editar</button></a>
                     </section>
                 EOT;
-
             ?>
-
-
     </section>
 
 
@@ -187,7 +208,10 @@
                     echo <<< EOT
                         <table>
                     EOT;    
-                    }
+                }else{
+                    echo "<p>No tienes publicaciones aun :c</p>";
+                }
+                
                 
 
             ?>

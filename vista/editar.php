@@ -10,7 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/estiloPerfil.css">
+    <link rel="stylesheet" href="./css/estiloEdit.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -32,7 +33,7 @@
                 </li>
                 <li><a>Tendencias</a></li>
                 <li><a>Equipos</a></li>
-                <li><a>Estoy perdido</a></li>
+                <li><a href="./home.php">Home</a></li>
             </ul>
         </section>
         <section class="categorias"> 
@@ -44,21 +45,18 @@
                      </div>
         </section>
 </header>
-    
-<a>HOLA</a>
+
 
 <section id="contenedor">
 
-    <section id="subir">
-
-        
+    <section id="contenedor__edit">
 
         <form id="formEditar" action="../controlador/datosEditados.php" method="post" enctype="multipart/form-data">
-            <p>     Nombre: <input type="text"></p>
-            <p>Descripcion: <input type="text"></p>
-            <p>  Ubicacion: <input type="text"></p>
+            <label><h1>Nombre:</h1>     <input name="nombre" type="text"></label>
+            <label><h1>Descripcion:</h1> <input name="descripcion" type="text"></label>
+            <label><h1>     Ciudad:</h1> <input name="ciudad" type="text"></label>
             <input id="seleccion" type="file" name="imagen" id="" >
-            <input id="boton" type="submit" value="Enviar Imagen">
+            <input id="botonEdit" type="submit" value="Enviar Imagen">
         </form>
 
     </section>

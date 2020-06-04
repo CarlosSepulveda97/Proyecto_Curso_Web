@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $conectar=mysqli_connect('localhost','root','');
 
 if (!$conectar){
@@ -16,6 +16,8 @@ if (!$conectar){
 $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $pass=$_POST['pass'];
+$_SESSION['nombre']=$nombre;
+
 $_SESSION['nombre']=$nombre;//se agrega el nombre a el array de sesion
 
 $sql="INSERT INTO cuentas VALUES('$nombre',
@@ -29,7 +31,7 @@ if(!$ejecutar){
     echo "error";
 }else{
     header("Status: 301 Moved Permanently");
-    header("Location: ../vista/home.php");
+    header("Location: ../vista/perfil.php");
     exit;
 }
 

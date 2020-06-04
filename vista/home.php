@@ -35,7 +35,7 @@
             </ul>
         </section>
         <section class="categorias"> 
-            <a href="perfil.php"><input class="button_mediano" type="submit" value="<?php echo $_SESSION['nombre']?>"></a>
+            <a href="./perfil.php"><input class="button_mediano" type="submit" value="<?php echo $_SESSION['nombre']?>"></a>
             <div class="lista-categorias">
                         <a href="#">Ayuda</a>
                         <a href="#">Ajustes</a>

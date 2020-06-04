@@ -1,0 +1,276 @@
+body{
+    
+    margin: 0px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(31, 30, 29);
+    align-items: center;
+    z-index:100;
+   
+    
+}
+
+#logo{
+    height: 40px;
+}
+
+a:-webkit-any-link{
+    text-decoration: none;
+}
+
+
+.button_mediano{
+    height: 40px;
+    width: 200px;
+    margin-right: 20px;
+    border-radius: 20px;
+    border-bottom: 0px;
+    border-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bree Serif', serif;
+}
+
+header input{
+    width: 100%;
+    padding: 20px;
+    margin: 5px;
+    font-size: 20px;
+}
+
+p{
+    font-size: 25px;
+    font-family: 'Bree Serif', serif;
+}
+
+ header ul{
+
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-family: 'Bree Serif', serif;
+    list-style: none;
+
+}
+
+header li{
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+header a{
+    color: white;
+}
+
+/*prueba*/
+
+.categorias {
+  position: relative;
+  display: inline-block;
+  font-family: 'Bree Serif', serif;
+}
+
+.lista-categorias {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 210px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.lista-categorias a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.lista-categorias a:hover {
+    background-color:rgb(89, 92, 91);
+    color: white;
+
+}
+
+.categorias:hover .lista-categorias {
+    display: block;
+}
+
+.cuerpo{
+    position: absolute;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+}
+
+.info{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.detalles{
+    padding-left: 100px;
+}
+
+.detalles p{
+    font-size: 20px;
+}
+
+.info img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: 3px solid black;
+    
+}
+
+.menu-perfil ul{
+    position: fixed;
+    top: 40vh;
+    left: 15vw;
+    list-style: none;
+}
+
+.menu-perfil li{
+    padding: 10px;
+}
+
+.menu-perfil li a{
+    color: black;
+    
+    font-family: 'Bree Serif', serif;
+    font-size: 15px;
+}
+
+.resumen{
+    padding-top: 40px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-archivos{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-archivos img{
+    width: 400px;
+    height: 400px;
+    margin-bottom: 0px;
+    border: 2px solid black;
+}
+
+#subir{
+    padding-top: 40px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    
+}
+
+#subir form{
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+input{
+    font-size: 20px;
+}
+
+input[type="file"]{
+    background-color: white;
+}
+
+button {
+    margin-top: 20px;
+    background-color: white;
+    width: 150px;
+    border: 2px solid black;
+    
+}
+
+#textoBoton{
+    color: black;
+}
+
+
+#boton{
+    margin-top: 20px;
+    background-color: white;
+    width: 300px;
+    border: 2px solid black;
+    
+}
+
+table{
+    width: 40vw;
+}
+
+
+/*editar*/
+#contenedor{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedor__edit{
+
+    border: 2px solid black;
+    min-width: 600px;
+    padding: 40px;
+}
+
+#formEditar label{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#seleccion{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#botonEdit{
+    width: 10vw;
+    background-color: white;
+    border: 2px solid black;
+    margin-top: 10px;
+    position: relative;
+    left: 410px;
+}
+
+
+
+
