@@ -19,9 +19,11 @@ else{
 }
 
 $nombre = $_POST['user'];
+$_SESSION['correo']=$_POST['user'];
 $password = $_POST['pass'];
 
 $_SESSION['nombre']=$nombre;//se agrega el nombre a el array de sesion
+
 
 $sql ="SELECT * FROM cuentas WHERE correo = '$nombre' AND pass = '$password' LIMIT 1";//queri
 

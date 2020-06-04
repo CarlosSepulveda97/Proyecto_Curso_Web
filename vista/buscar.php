@@ -3,6 +3,7 @@
 session_start();
 $busqueda=$_POST['busqueda'];
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +71,7 @@ $busqueda=$_POST['busqueda'];
             
             while($fila=mysqli_fetch_array($consulta)){
                 if ($fila['nombre']!=$_SESSION['nombre']){
-                    echo "<a id='casillas' href='./visita.php?nombre=".$fila['nombre']."'>";
+                    echo "<a id='casillas' href='./visita.php?nombre=".$fila['nombre']."&id=".$fila['idCuenta']."'>";
                     echo <<< EOT
                     <section class="container__elemento">
                         <img src=$fila[ubicacion] alt="" width="100px" height="100px">

@@ -1,6 +1,10 @@
 <?php
 
     session_start();
+    $idSeguir=$_GET['id'];
+
+    //Funcion seguir
+
 
 ?>
 
@@ -95,6 +99,18 @@
 
     </section>
 
+
+    <!-- Seguir, ver seguidores, seguidos -->
+
+    <section>
+        <form action="../controlador/seguir.php?id=<?php echo "$idSeguir"?>" method="POST" target="oculto"> 
+            <input type="submit" name="seguir" value="Seguir">
+            <input type="submit" name="seguidos" value="Seguidos">
+            <input type="submit" name="seguidores" value="Seguidores">
+        </form>
+    </section>
+
+    <iframe style="visibility: hidden;" name="oculto" src="../controlador/seguir.php?id=<?php echo "$idSeguir"?>"></iframe>
 
 
 

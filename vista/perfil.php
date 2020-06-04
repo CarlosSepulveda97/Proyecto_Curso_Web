@@ -1,6 +1,17 @@
 <?php
 
     session_start();
+    $correo=$_SESSION['correo'];
+
+    
+    $conectar=mysqli_connect('localhost','root','','usuarios');
+    $queri="SELECT id FROM cuentas
+            WHERE correo='$correo'";
+    $ejecutar=mysqli_query($conectar,$queri);
+    $fila=$ejecutar->fetch_assoc();
+    $idCuenta=$fila['id'];
+    
+
 
 ?>
 
@@ -129,6 +140,29 @@
                 <li><a href="">Seguidores</a></li>
                 <li><a href="">Administrar</a></li>
             </ul>
+    </section>
+
+
+
+
+    <!--Seguimiento-->
+    <section class="seguimiento__container">
+            <p>Seguidos: <?php 
+                $contador=0;
+                $conexion=mysqli_connect('localhost','root','','usuarios');
+                $queri="SELECT id FROM seguimiento
+                        WHERE idCuentaSeguido='$idCuenta' 
+                        ";
+                $ejecutar=mysqli_query($conexion,$queri);
+                
+                while($fila=$ejecutar->fetch_assoc()){
+                    
+                    $contador+=1;
+                }
+                echo "$contador";
+            ?></p>
+
+
     </section>
 
 

@@ -17,6 +17,7 @@ $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $pass=$_POST['pass'];
 $_SESSION['nombre']=$nombre;
+$_SESSION['correo']=$correo;
 
 $_SESSION['nombre']=$nombre;//se agrega el nombre a el array de sesion
 
