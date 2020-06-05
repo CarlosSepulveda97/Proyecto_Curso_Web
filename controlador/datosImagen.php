@@ -19,3 +19,5 @@ $ubicacion='./archivos/'.$nombre_imagen;
 $sql="INSERT INTO publicacion (id_user,ubicacion) VALUES('$id_user','$ubicacion')";
 
 $ejecutar=mysqli_query($conectar,$sql);
+
+header('location:'.'../vista/perfil.php'); 

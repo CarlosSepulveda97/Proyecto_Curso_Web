@@ -29,11 +29,16 @@ $ejecutar=mysqli_query($conectar,$sql);
 $sql2="SELECT id FROM cuentas WHERE correo='$correo'";
 $solicitud=mysqli_fetch_assoc(mysqli_query($conectar,$sql2));
 $_SESSION['id']=$solicitud['id'];
+$id=$_SESSION['id'];
 
+$sql3="INSERT INTO info(nombre,descripcion,ubicacion,ciudad,idCuenta)
+        VALUES('$nombre','Hola','./archivos/default.png','Planeta Tierra','$id')";
+$solicitud2=mysqli_query($conectar,$sql3);
 
 if(!$ejecutar){
-    echo "error";
+    header('location:'.'../vista/error.php'); 
 }else{
+    
     header("Status: 301 Moved Permanently");
     header("Location: ../vista/perfil.php");
     exit;

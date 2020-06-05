@@ -15,10 +15,16 @@ $ubicacion='./archivos/'.$nombre_imagen;
 $nombre=$_POST['nombre'];
 $descripcion=$_POST['descripcion'];
 $ciudad=$_POST['ciudad'];
+$id=$_SESSION['id'];
+
 
 $sql="UPDATE info SET nombre='$nombre',descripcion='$descripcion',ubicacion='$ubicacion',ciudad='$ciudad'
-        WHERE nombre='$nombre'";
+        WHERE idCuenta='$id'";
 
 $ejecutar=mysqli_query($conectar,$sql);
-
-header('location:'.'../vista/perfil.php');
+if($ejecutar){
+   header('location:'.'../vista/perfil.php');     
+}
+else{
+   header('location:'.'../vista/error.php'); 
+}

@@ -10,7 +10,7 @@
     $ejecutar=mysqli_query($conectar,$queri);
     $fila=$ejecutar->fetch_assoc();
     $idCuenta=$fila['id'];
-    
+    $id=$_SESSION['id'];
 
 ?>
 
@@ -69,25 +69,20 @@
         <?php
             $nombre=$_SESSION['nombre'];
             $conectar=mysqli_connect('localhost','root','','usuarios');
-            $sql="SELECT ubicacion FROM info WHERE nombre = '$nombre'";
+            
+            $sql="SELECT ubicacion FROM info WHERE idCuenta = '$id'";
             $solicitud=mysqli_query($conectar,$sql);
             $fila=$solicitud->fetch_assoc();
-            if (is_null($fila)){
-                $ubicacion="./archivos/default.png";
-                echo <<< EOT
-                    <img src="$ubicacion" alt="">
-                EOT;
-            }else
-            {
-                $direccion=$fila['ubicacion'];
-                echo <<< EOT
-                    <img src="$direccion" alt="">
-                EOT;
-            }
+            
+            $direccion=$fila['ubicacion'];
+            echo <<< EOT
+                <img src="$direccion" alt="">
+            EOT;
+            
         ?>
         <section class="detalles">
             <?php
-                $sql2="SELECT * FROM info WHERE nombre = '$nombre'";
+                $sql2="SELECT * FROM info WHERE idCuenta = '$id'";
                 $solicitud=mysqli_query($conectar,$sql2);
                 $fila=$solicitud->fetch_assoc();
                 
@@ -106,7 +101,7 @@
 
                 }
 
-                $sql2="SELECT * FROM info WHERE nombre = '$nombre'";
+                $sql2="SELECT * FROM info WHERE idCuenta = '$id'";
                 $solicitud=mysqli_query($conectar,$sql2);
                 $fila=$solicitud->fetch_assoc();
 
@@ -216,8 +211,7 @@
                     EOT;
 
                     while($fila=$solicitud->fetch_assoc()){
-                        var_dump($fila);
-                        var_dump($idCuenta);
+                        
                         $direccion=$fila['ubicacion'];
                         
                         if ($contador==1){
