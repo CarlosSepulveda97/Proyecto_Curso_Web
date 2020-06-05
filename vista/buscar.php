@@ -70,7 +70,7 @@ $busqueda=$_POST['busqueda'];
             $consulta=mysqli_query($con,$queri);
             
             while($fila=mysqli_fetch_array($consulta)){
-                if ($fila['nombre']!=$_SESSION['nombre']){
+                if ($fila['idCuenta']!=$_SESSION['id']){
                     echo "<a id='casillas' href='./visita.php?nombre=".$fila['nombre']."&id=".$fila['idCuenta']."'>";
                     echo <<< EOT
                     <section class="container__elemento">

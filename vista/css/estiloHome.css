@@ -171,13 +171,13 @@ a{
     margin-bottom: 50px;
     width: 500px;
     width: 500px;
-    border: 3px solid black;
+    
 
 }
 
 #dashboard img{
     width: 500px;
-    width: 500px;
+    border: 3px solid black;
 
 }
 
@@ -187,10 +187,15 @@ a{
     border: 0px;
 }
 
+#publicacion{
+    min-width: 500px;
+}
+
 #opciones img{
     width: 40px;
     height: 40px;
-    padding-left: 15px;
+    margin-left: 20px;
+    border: 0;
     
 }
 #error-contenedor{

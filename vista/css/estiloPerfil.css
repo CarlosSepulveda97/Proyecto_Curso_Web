@@ -138,6 +138,7 @@ header a{
     border-radius: 100px;
     border: 3px solid black;
     
+    
 }
 
 .menu-perfil ul{
@@ -242,4 +243,39 @@ table{
 #formEditar p{
     display: flex;
     justify-content: space-between;
+}
+
+
+/*estilo seguimiento*/
+
+.seguimiento__container{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.seguimiento__container p{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#oculto{
+    width: 0;
+    height: 0;
+}
+
+/*botones seguir*/
+.boton__seguir{
+    display: flex;
+    justify-content: center;
+}
+
+.boton__seguir input{
+    -webkit-box-shadow: 0px 0px 28px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 28px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 28px 1px rgba(0,0,0,0.75);
+    background-color:white;
+    border: 2px solid black;
+    width: 100px;
 }

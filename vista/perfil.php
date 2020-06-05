@@ -12,7 +12,6 @@
     $idCuenta=$fila['id'];
     
 
-
 ?>
 
 <!DOCTYPE html>
@@ -147,7 +146,7 @@
 
     <!--Seguimiento-->
     <section class="seguimiento__container">
-            <p>Seguidos: <?php 
+            <p>Seguidores: <?php 
                 $contador=0;
                 $conexion=mysqli_connect('localhost','root','','usuarios');
                 $queri="SELECT id FROM seguimiento
@@ -159,8 +158,23 @@
                     
                     $contador+=1;
                 }
-                echo "$contador";
+                echo " $contador";
             ?></p>
+            <p>Seguidos:<?php
+                $contador=0;
+                $conexion=mysqli_connect('localhost','root','','usuarios');
+                $queri="SELECT id FROM seguimiento
+                        WHERE idCuentaSeguidor='$idCuenta' 
+                        ";
+                $ejecutar=mysqli_query($conexion,$queri);
+                
+                while($fila=$ejecutar->fetch_assoc()){
+                    
+                    $contador+=1;
+                }
+                echo " $contador";
+            ?>
+            </p>
 
 
     </section>
@@ -187,10 +201,12 @@
     <section class="resumen">
         <section class="menu-archivos">
             <?php
+                
                 $array=[];
                 $nombre=$_SESSION['nombre'];
+                $idCuenta=$_SESSION['id'];
                 $conectar=mysqli_connect('localhost','root','','usuarios');
-                $sql="SELECT ubicacion FROM publicacion WHERE id_user = '$nombre'";
+                $sql="SELECT ubicacion FROM publicacion WHERE id_user = '$idCuenta'";
                 $solicitud=mysqli_query($conectar,$sql);
             
                 if($solicitud->num_rows>0){
@@ -200,6 +216,8 @@
                     EOT;
 
                     while($fila=$solicitud->fetch_assoc()){
+                        var_dump($fila);
+                        var_dump($idCuenta);
                         $direccion=$fila['ubicacion'];
                         
                         if ($contador==1){

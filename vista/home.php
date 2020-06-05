@@ -57,7 +57,81 @@
 
 
 
+
+
+<!--Generador de imagenes en base a los seguidos  -->    
+
+<section id="dashboard">
+    <?php
+
+    $idCuenta=$_SESSION['id'];
+    $conexion=mysqli_connect('localhost','root','','usuarios');
+    $queri="SELECT idCuentaSeguido FROM seguimiento 
+            WHERE idCuentaSeguidor='$idCuenta'";
     
+    $ejecutar=mysqli_query($conexion,$queri);
+    while($fila=$ejecutar->fetch_assoc()){
+        $idCuentaSeguido=$fila['idCuentaSeguido'];
+        $sql="SELECT ubicacion FROM publicacion WHERE id_user ='$idCuentaSeguido'";
+        $solicitud=mysqli_query($conexion,$sql);
+ 
+        while($lista=$solicitud->fetch_assoc()){
+            echo <<< EOT
+            <section id="imagenes">
+                <img id="publicacion" src='$lista[ubicacion]' alt="">
+                <section id="opciones">
+                    <img src="./img/like.png" alt="">
+                    <img src="./img/fork.png" alt="">
+                </section>
+            </section>
+            EOT;
+        }
+    }
+    
+
+
+
+?>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
     <section id="dashboard">
         <section id="imagenes">
             <img src="./img/b1.jpg" alt="">
@@ -66,43 +140,8 @@
             <img src="./img/fork.png" alt="">
             </section>
         </section>
+-->    
         
-        <section id="imagenes">
-            <img src="./img/b2.jpg" alt="">
-            <section id="opciones">
-            <img src="./img/like.png" alt="">
-            <img src="./img/fork.png" alt="">
-            </section>
-        </section>
-        
-        <section id="imagenes">
-            <img src="./img/b3.jpg" alt="">
-            <section id="opciones">
-            <img src="./img/like.png" alt="">
-            <img src="./img/fork.png" alt="">
-            </section>
-        </section>
-        
-        <section id="imagenes">
-            <img src="./img/b4.jpg" alt="">
-            <section id="opciones">
-            <img src="./img/like.png" alt="">
-            <img src="./img/fork.png" alt="">
-            </section>
-        </section>
-        
-        <section id="imagenes">
-            <img src="./img/b5.jpg" alt="">
-            <section id="opciones">
-            <img src="./img/like.png" alt="">
-            <img src="./img/fork.png" alt="">
-            </section>
-        </section>
-        
-
-    </section>
-
-    
 
 
 </body>

@@ -1,5 +1,7 @@
 <?php
 
+
+session_abort();
 session_start();
 
 
@@ -34,6 +36,7 @@ if(!$user=mysqli_fetch_assoc($ejecutar)){ //$user es un array con la informacion
 
 } 
 else{
+    $_SESSION['id']=$user['id'];
     header("Status: 301 Moved Permanently");
     header("Location: ../vista/home.php");
     exit;
