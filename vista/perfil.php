@@ -121,8 +121,7 @@
             ?>
     </section>
 
-
-
+    
 
 
     <!--MENU LATERAL-->        
@@ -189,6 +188,16 @@
     </section>
 
 
+<!--
+    <a href="#miModal">Abrir Modal</a>
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <a href="#">X</a>
+            <h2>Mi primer Modal</h2>
+            <p>Este es mi primera ventana modal sin utilizar JavaScript.</p>
+        </div>  
+    </div>
+            -->
 
 
 
@@ -206,12 +215,16 @@
             
                 if($solicitud->num_rows>0){
                     $contador=1;
+                    $numero=1;
+                    
+                    
                     echo <<< EOT
                         <table>
                     EOT;
 
                     while($fila=$solicitud->fetch_assoc()){
                         
+                        $enlace="miModal"."$numero";
                         $direccion=$fila['ubicacion'];
                         
                         if ($contador==1){
@@ -226,9 +239,31 @@
 
                         }
                         echo <<< EOT
-                            <img src="$direccion" alt="">
+                            
+                            <a href="#$enlace">
+                                <img src="$direccion" alt="">
+                            </a>
+                            <div id="$enlace" class="modal">
+                                <div class="modal-contenido">
+                                    <div class="imag">
+                                        <img src="$direccion" alt="" style="max-width:100%;width:cover;height:auto;">
+                                    </div>
+                                    <div class="comment">
+                                        
+                                        <form id="formComment">
+                                            <label><input type="text" placeholder="Comenta"></label>
+                                            <label><input type="submit" value="Comentar"></label>
+                                        </form>
+                                    </div>
+                                    <div class="botonSalir">
+                                        <a href="#">X</a>
+                                    </div>
+                                </div>  
+                            </div>
+                            
                         EOT;
-
+                        $numero+=1;
+                        
                         if ($contador==1){
                             echo <<< EOT
                                 </TD>
@@ -258,8 +293,6 @@
                     echo "<p>No tienes publicaciones aun :c</p>";
                 }
                 
-                
-
             ?>
 
             
