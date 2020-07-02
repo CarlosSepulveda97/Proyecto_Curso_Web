@@ -225,6 +225,11 @@
                     while($fila=$solicitud->fetch_assoc()){
                         
                         $enlace="miModal"."$numero";
+                        $numeroMenor=$numero-1;
+                        $numeroMayor=$numero+1;
+                        $enlaceMenor="miModal"."$numeroMenor";
+                        $enlaceMayor="miModal"."$numeroMayor";
+
                         $direccion=$fila['ubicacion'];
                         
                         if ($contador==1){
@@ -238,6 +243,45 @@
                             EOT;
 
                         }
+                        $info = new SplFileInfo($direccion);
+                        if ($info->getExtension()=="mp4"){
+                            echo <<< EOT
+                            
+                            <a href="#$enlace">
+                                <video id="videoExterno"class="movie" >
+                                    <source src="$direccion" alt=""/>
+                                </video>
+                                <script type="module" src="./script/video.js"></script>
+                            </a>
+                            <div id="$enlace" class="modal">
+                                <div class="modal-contenido">
+                                    <video class="modalMovie" id="videoInterno" style="max-width:50%;width:cover;height:auto;" >
+                                        <source src="$direccion" alt="" />
+                                    </video>
+                                    <div class="botonesMultimedia">
+                                        <a id="play"><img src="./img/play.png" style="widht:50px;height:50px"/></a>
+                                        <a id="mute"><img src="./img/sonido.png" style="widht:50px;height:50px"/></a>
+                                    <div class="comentarioFlotante">
+                                        <img src="./img/comentar.png" style="width: 30px;height: 30px;" />
+                                    </div>
+                                    
+                                    <div class="botonSalirVideo">
+                                        <a href="#"><img src="./img/salir.png" style="width:20px;height:20px;"></a>
+                                    </div>
+                                </div>
+                                <a href="#$enlaceMenor" class="flechaIzquierda">
+                                    <img src="./img/flechaLeft.png" style="widht:40px;height:40px">
+                                </a>
+                                <a href="#$enlaceMayor" class="flechaDerecha">
+                                    <img src="./img/flechaRight.png" style="widht:40px;height:40px">
+                                </a>
+                            </div>
+                            
+                            
+                        EOT;
+                        
+                        }
+                        else{
                         echo <<< EOT
                             
                             <a href="#$enlace">
@@ -249,19 +293,27 @@
                                         <img src="$direccion" alt="" style="max-width:100%;width:cover;height:auto;">
                                     </div>
                                     <div class="comment">
-                                        
-                                        <form id="formComment">
+                                        <p>No tienes comentarios</p>
+                                        <form id="formComment">  
                                             <label><input type="text" placeholder="Comenta"></label>
                                             <label><input type="submit" value="Comentar"></label>
                                         </form>
                                     </div>
                                     <div class="botonSalir">
-                                        <a href="#">X</a>
+                                        <a href="#"><img src="./img/salirVideo.png" style="width:20px;height:20px;"></a>
                                     </div>
-                                </div>  
+                                </div>
+                                <a href="#$enlaceMenor" class="flechaIzquierda">
+                                    <img src="./img/flechaLeft.png" style="widht:40px;height:40px">
+                                </a>
+                                <a href="#$enlaceMayor" class="flechaDerecha">
+                                    <img src="./img/flechaRight.png" style="widht:40px;height:40px">
+                                </a>
                             </div>
                             
+                            
                         EOT;
+                        }
                         $numero+=1;
                         
                         if ($contador==1){
@@ -304,6 +356,5 @@
     </section>
 
 </section>
-    
 </body>
 </html>

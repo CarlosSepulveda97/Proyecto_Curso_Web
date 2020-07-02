@@ -136,8 +136,7 @@ header a{
     width: 200px;
     height: 200px;
     border-radius: 100px;
-    border: 3px solid black;
-    
+    box-shadow: 0px 0px 28px 3px rgba(23, 91, 100, 0.479);
     
 }
 
@@ -146,6 +145,7 @@ header a{
     top: 40vh;
     left: 15vw;
     list-style: none;
+    
 }
 
 .menu-perfil li{
@@ -172,11 +172,19 @@ header a{
     flex-direction: column;
 }
 
+.movie{
+    width: 400px;
+    height: 400px;
+}
+
+
+
 .menu-archivos img{
     width: 400px;
     height: 400px;
     margin-bottom: 0px;
-    border: 2px solid black;
+    box-shadow: 0px 0px 28px 3px rgba(23, 91, 100, 0.479);
+    margin: 10px;
 }
 
 #subir{
@@ -188,7 +196,7 @@ header a{
 }
 
 #subir form{
-    border: 2px solid black;
+    box-shadow: 0px 0px 28px 3px rgba(23, 91, 100, 0.479);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -206,9 +214,11 @@ input[type="file"]{
 
 button {
     margin-top: 20px;
+    font-size: 20px;
     background-color: white;
     width: 150px;
-    border: 2px solid black;
+    border: 0px;
+    box-shadow: 0px 0px 28px 3px rgba(23, 91, 100, 0.479);
     
 }
 
@@ -283,7 +293,7 @@ table{
 /*ventana MOdal*/
 
 .modal-contenido{
-    background-color:rgba(0, 0, 0, 0.192);
+    background-color:rgba(0, 0, 0, 0.712);
     width:80%;
     height: 80%;
     padding: 10px 20px;
@@ -296,8 +306,32 @@ table{
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0px 0px 28px 1px rgba(0, 0, 0, 0.835);
+    box-shadow: 0px 0px 28px 1px rgba(0, 0, 0, 0.931);
   }
+
+.modalMovie{
+    width: 100%;
+    height: 100%;
+    margin-left: 25%;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 28px 3px rgba(0,0,0,0.75);
+}
+
+.comentarioFlotante{
+    position: fixed;
+    top: 87%;
+    left: 87%;
+    
+}
+
+.comentarioFlotante img{
+    box-shadow: none;
+}
+
 
 .imag{
     width: 100%;
@@ -317,6 +351,13 @@ table{
     width: 30%;
     background-color: White;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment p{
+    color: black;
 }
 
 #formComment{
@@ -329,18 +370,72 @@ table{
     align-items: flex-start;
 }
 
-
-.botonSalir a{
-    padding: 20px;
-    background-color: black;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
+.botonSalir img{
     position: fixed;
-    top: 12%;
-    left: 88%;
-    z-index: 1;
-    border-radius: 40px;
+    left: 89%;
+    top:12%;
+    border: 0px solid black;
+    
+}
 
+.botonSalirVideo img{
+    position: fixed;
+    left: 89%;
+    top:12%;
+    border: 0px solid black;
+    box-shadow: 0px 0px 28px 3px rgba(225, 230, 229, 0.75);
+    border-radius: 11px;
+    background-color: white;
+    
+    
+}
+
+.flechaIzquierda{
+    
+    position: fixed;
+    top: 45%;
+    left: 5%;
+    
+}
+.flechaIzquierda img{
+    border-radius: 20px;
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    box-shadow: 0px 0px 28px 3px rgba(51, 104, 97, 0.75);
+}
+
+
+.flechaDerecha{
+    position: fixed;
+    top: 45%;
+    left: 95%;
+    border-radius: 40px;
+    
+}
+.flechaDerecha img{
+    box-shadow: 0px 0px 28px 3px rgba(51, 104, 97, 0.75);
+    border-radius: 40px;
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    
+}
+
+.botonesMultimedia{
+    display: flex;
+    position: absolute;
+    top: 90%;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.botonesMultimedia img{
+    width: 50px;
+    height: 50px;
+    box-shadow: 0em;
+    border-radius: 25px;
 }
 
 .modal{
